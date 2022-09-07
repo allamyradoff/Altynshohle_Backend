@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+    <!-- Page Title
+		============================================= -->
+		<section id="page-title">
+
+			<div class="container clearfix">
+                {% for i in products %}
+				<h1>{{i.name}}</h1>
+				{% endfor %}
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+
+					<div class="row gutter-40 col-mb-80">
+						<div class="sidebar col-lg-3">
+							<div class="sidebar-widgets-wrap">
+
+								<div class="widget widget-filter-links">
+
+									<h4>Kategoriyalar</h4>
+									<ul class="custom-filter pl-2" data-container="#shop" data-active-class="active-filter">
+                                        {% for i in category %}
+										<li class="link"><a href="{% url 'products' i.id %}" data-filter=".sf-dress" >{{i.name}}</a></li>
+										{% endfor %}
+									</ul>
+
+								</div>
+
+                                <!-- <div class="widget clearfix">
+                                    <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12645.479522769107!2d61.8808911!3d37.593453!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7a0c51cd38d4ca38!2zIk1la2FuIiBLb25kaXRlciDDlm7DvG1sZXJp!5e0!3m2!1sru!2s!4v1637577993802!5m2!1sru!2s"
+                                    width="900" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+								</div>
+
+								<div class="widget subscribe-widget clearfix">
+
+									<h4>НАША РАСПОЛОЖЕНИЕ НА КАРТЕ</h4>
+									<h5>Her bir myhmany gadyrlaýarys, şonuň üçin her gün müşderilerimiziň saparyny has lezzetli etmek üçin işleýäris.</h5>
+									
+								</div> -->
+
+
+							</div>
+						</div>
+						<div class="postcontent col-lg-9">
+
+							<div class="single-product">
+								<div class="product">
+									<div class="row gutter-40">
+                                        {% for i in product %}
+										<div class="col-md-6">
+
+											<!-- Product Single - Gallery
+											============================================= -->
+											<div class="product-image">
+												<div class="fslider" data-pagi="false" data-arrows="false" data-thumbs="true">
+													<div class="flexslider">
+														<div class="slider-wrap" data-lightbox="gallery">
+															<div class="slide" data-thumb="{{i.main_image.url}}"><a href="{{i.main_image.url}}" title="Pink Printed Dress - Front View" data-lightbox="gallery-item"><img src="{{i.second_image.url}}" alt="{{i.name}}"></a></div>
+															<div class="slide" data-thumb="{{i.main_image.url}}"><a href="{{i.second_image.url}}g" title="Pink Printed Dress - Side View" data-lightbox="gallery-item"><img src="{{i.second_image.url}}" alt="{{i.name}}"></a></div>
+															<div class="slide" data-thumb="{{i.three_image.url}}"><a href="{{i.three_image.url}}" title="Pink Printed Dress - Back View" data-lightbox="gallery-item"><img src="{{i.three_image.url}}" alt="{{i.name}}"></a></div>
+														</div>
+													</div>
+												</div>
+											</div><!-- Product Single - Gallery End -->
+
+										</div>
+
+										<div class="col-md-6 product-desc">
+
+											<div class="d-flex align-items-center justify-content-between">
+
+												<!-- Product Single - Price
+												============================================= -->
+												<div class="product-price"> <ins>{{i.name}}</ins></div><!-- Product Single - Price End -->
+
+											
+
+											</div>
+
+											<div class="line"></div>
+
+											
+											<div class="line"></div>
+
+											<!-- Product Single - Short Description
+											============================================= -->
+											<p>{{i.title}}</p>
+											<p> <span style="font-weight:700;"> DÜZÜMI:</span> {{i.desc}}</p>
+										
+
+										
+										</div>
+
+										<div class="w-100"></div>
+
+										<div class="col-12 mt-5">
+
+											<div class="tabs clearfix mb-0" id="tab-1">
+
+												<ul class="tab-nav clearfix">
+													<li><a href="#tabs-1"><i class="icon-align-justify2"></i><span class="d-none d-md-inline-block"> Ginishleyin</span></a></li>
+												</ul>
+
+												<div class="tab-container">
+
+													<table class="table">
+														<thead>
+														  <tr>
+															<th>Gaplamak</th>
+															<th>Gutynyň agramy</th>
+															<th>Bir gutydaky mukdar</th>
+															<th>Ýaramlylyk möhleti</th>
+														  </tr>
+														</thead>
+														<tbody>
+														  <tr>
+															<td>{{i.packing}}</td>
+															<td>{{i.box_weight}}</td>
+															<td>{{i.quantity_in_the_box}}</td>
+															<td>{{i.shelf_life}}</td>
+														  </tr>
+														  
+														</tbody>
+													  </table>
+
+													<div class="tab-content clearfix" id="tabs-1">
+														
+														<ul class="tab-nav clearfix">
+															<li><a href="#tabs-1"><i class="icon-align-justify2"></i><span class="d-none d-md-inline-block"> Ginishleyin</span></a></li>
+														</ul>
+														<hr>
+
+
+														<table class="table table-striped table-bordered">
+															<tbody>
+																<tr>
+																	<td>Beloklar</td>
+																	<td> <span style="padding-left: 100px;"> </span>{{i.protein}}</td>
+																</tr>
+																<tr>
+																	<td>Ýaglar</td>
+																	<td> <span style="padding-left: 100px;"> </span>{{i.fat}}</td>
+																</tr>
+																<tr>
+																	<td>Uglewodlar</td>
+																	<td> <span style="padding-left: 100px;"> </span>{{i.carbohydrate}}</td>
+																</tr>
+																<tr>
+																	<td>Kuwwatlylyk gymmaty</td>
+																	<td> <span style="padding-left: 100px;"> </span>{{i.the_energy_value}}</td>
+																</tr>
+																<tr>
+																	<td>Agramy</td>
+																	<td> <span style="padding-left: 100px;"> </span>{{i.weight}}</td>
+																</tr>
+																
+															</tbody>
+														</table>
+													</div>
+													<div class="tab-content clearfix" id="tabs-2">
+
+														<table class="table table-striped table-bordered">
+															<tbody>
+																<tr>
+																	<td>Белки</td>
+																	<td>0,7г.</td>
+																</tr>
+																<tr>
+																	<td>Жиры</td>
+																	<td>2,9г.</td>
+																</tr>
+																<tr>
+																	<td>Углеводы</td>
+																	<td>91,1г.</td>
+																</tr>
+																<tr>
+																	<td>Энергетическая ценность</td>
+																	<td>393ккал.</td>
+																</tr>
+																<tr>
+																	<td>Вес</td>
+																	<td>6,7г.</td>
+																</tr>
+																
+															</tbody>
+														</table>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class="line"></div>
+
+											
+
+										</div>
+                                        {% endfor %}
+									</div>
+								</div>
+							</div>
+
+							<div class="line"></div>
+
+							<div class="w-100">
+
+								<h4>Menzesh harytlar</h4>
+
+								<div class="owl-carousel product-carousel carousel-widget" data-margin="30" data-pagi="false" data-autoplay="5000" data-items-xs="1" data-items-md="2" data-items-lg="3" data-items-xl="4">
+                                    {% for e in product_one %}
+									<div class="oc-item">
+										<div class="product">
+											<div class="product-image">
+												<a href="{% url 'products_detail' e.id %}"><img src="{{e.main_image.url}}" alt="Checked Short Dress"></a>
+												
+											</div>
+											<div class="product-desc center">
+												<div class="product-title"><h3><a href="{% url 'products_detail' e.id %}">Altyn şöhle" goýaldylan şekerli süýt tagamly süýji</a></h3></div>
+												<div class="product-price"><ins>{{e.category}}</ins></div>
+												
+											</div>
+										</div>
+									</div>
+                                    {% endfor %}
+
+                                    
+
+
+								
+
+								</div>
+
+							</div>
+
+						</div>
+
+						
+					</div>
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+{% endblock %}

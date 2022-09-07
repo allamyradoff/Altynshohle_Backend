@@ -1,0 +1,90 @@
+{% extends 'base_eng.html' %}
+
+{% load static %}
+{% block content %}
+        <!-- Page Title
+		============================================= -->
+		<section id="page-title">
+
+			<div class="container clearfix">
+                
+				<h1 style="text-align: center;">Catgories</h1>
+				<div class="category-flex">
+					{% for c in category %}
+					<a href="{% url 'products_eng' c.id %}" class="button button-border button-rounded button-fill button-aqua"><span>{{c.name}}</span></a>
+					{% endfor %}
+				</div>
+				
+				
+					
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+
+					<!-- Shop
+					============================================= -->
+					<div id="shop" class="shop row grid-container gutter-30" data-layout="fitRows">
+
+                        {% for i in all_products %}
+						<div class="product col-lg-3 col-md-4 col-sm-6 col-12" >
+							<div class="grid-inner">
+								<div class="product-image">
+									<div class="fslider" data-arrows="false">
+										<div class="flexslider">
+											<div class="slider-wrap">
+												<div class="slide"><a href="{% url 'products_detail_eng' i.id %}"><img src="{{i.main_image.url}}" alt="{{i.name}}"></a></div>
+												<div class="slide"><a href="{% url 'products_detail_eng' i.id %}"><img src="{{i.second_image.url}}" alt="{{i.name}}"></a></div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+								<div class="product-desc">
+									<div class="product-title"><h3><a href="{% url 'products_detail_eng' i.id %}">{{i.name}}</a></h3></div>
+									<div class="product-title"><h3><a href="{% url 'products_detail_eng' i.id %}">{{i.title}}</a></h3></div>
+									
+								</div>
+							</div>
+						</div>
+                        {% endfor %}
+
+
+                        {% for i in products %}
+						<div class="product col-lg-3 col-md-4 col-sm-6 col-12" >
+							<div class="grid-inner">
+								<div class="product-image">
+									<div class="fslider" data-arrows="false">
+										<div class="flexslider">
+											<div class="slider-wrap">
+												<div class="slide"><a href="{% url 'products_detail_eng' i.id %}"><img src="{{i.main_image.url}}" alt="{{i.name}}"></a></div>
+												<div class="slide"><a href="{% url 'products_detail_eng' i.id %}"><img src="{{i.second_image.url}}" alt="{{i.name}}"></a></div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+								<div class="product-desc">
+									<div class="product-title"><h3><a href="{% url 'products_detail_eng' i.id %}">{{i.name}}</a></h3></div>
+									<div class="product-title"><h3><a href="{% url 'products_detail_eng' i.id %}">{{i.title}}</a></h3></div>
+									
+								</div>
+							</div>
+						</div>
+                        {% endfor %}
+
+
+						
+						
+					</div><!-- #shop end -->
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+
+{% endblock %}

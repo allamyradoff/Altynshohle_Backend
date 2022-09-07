@@ -1,0 +1,228 @@
+{% extends 'base_eng.html' %}
+
+{% load static %}
+{% block content %}
+<!-- Slider
+		============================================= -->
+	<section id="slider" class="slider-element revslider-wrap topmargin include-header">
+
+            <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
+                <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
+                <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
+                    <ul>	<!-- SLIDE  -->
+                        
+
+                        {% for i in slider %}
+                        <li data-index="rs-16" data-transition="zoomout" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="5000"  data-thumb="include/rs-plugin/demos/assets/images/datcolor-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="5000" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-description="">
+                            <!-- MAIN IMAGE -->
+                            <img src="{{i.image.url}}"  alt="Image"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            
+
+                        </li>
+                        {% endfor %}
+
+
+
+
+                        
+                    
+                    </ul>
+                    <div class="tp-static-layers"></div>
+                    <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>
+                </div>
+            </div><!-- END REVOLUTION SLIDER -->
+
+        
+    </section>
+
+    <div class="section border-top-0 m-0">
+        <div class="container text-center">
+            
+            <div class="heading-block center">
+                <h2>ALTYN SHOHLE PRIVATE ENTERPRISE.</h2>
+            </div>
+            
+            <p>2022-nji ýyldan bäri Altyn Şöhle kärhanasy dürli konditer önümlerini öndürýär we halka hödürleýär. Önümlerimiz içerki bazarymyza elýeterli we adalatly bahalarda doly üpjün edilýär. Lorem ipsum dolor sit amet consectetur adipisicing elit. At distinctio voluptatibus officiis sunt. Est praesentium suscipit magnam ut nobis, dolorum porro optio placeat fuga soluta dolores doloremque quod vitae, quam quis consectetur id similique hic? Doloremque at sapiente mollitia eligendi architecto delectus, perspiciatis officiis quas, odio accusantium animi sint, voluptatem debitis nobis est culpa maxime quis libero minus fugit hic a. Laudantium inventore alias labore vitae vel beatae quam deleniti. Dolores possimus officiis iste veritatis fuga culpa hic repellat, nisi officia error id facere cupiditate iure ad vel ab rem non, sint repudiandae necessitatibus! Ipsum impedit neque totam. Rerum vel temporibus numquam. Consequatur, qui nisi sit porro animi quia maxime illum libero mollitia ullam eum aliquam reiciendis explicabo minima placeat a nobis reprehenderit dolore dignissimos omnis numquam at eveniet odio officiis. Ex, perferendis beatae. In deleniti praesentium ullam vitae aspernatur laudantium eaque quasi! Fuga ad, non quaerat ut asperiores eos.</p>
+            
+        </div>
+    </div>
+    
+
+
+
+
+    <div class=" border-top-0 m-0">
+        <div class="container text-center">
+
+            <div class="heading-block center">
+                <h2>Categories.</h2>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+
+                
+
+                <!-- Portfolio Items
+                ============================================= -->
+                <div id="portfolio" class="portfolio row grid-container gutter-20" data-layout="fitRows">
+
+
+                    {% for c in category %}
+                    <article class="portfolio-item col-lg-1-6 col-md-4 col-sm-6 col-12 pf-media pf-icons">
+                        <div class="grid-inner">
+                            <div class="portfolio-image">
+                                <a href="{% url 'products_eng' c.id %}">
+                                    <img src="{{c.image.url}}" alt="{{c.name}}">
+                                </a>
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark" data-hover-animate="fadeIn">
+                                    </div>
+                                    <div class="bg-overlay-bg dark" data-hover-animate="fadeIn"></div>
+                                </div>
+                            </div>
+                            <div class="portfolio-desc">
+                                <h3><a href="{% url 'products_eng' c.id %}">{{c.name}}</a></h3>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+
+                    
+                    
+
+                    
+
+                    
+
+                </div><!-- #portfolio end -->
+
+            </div>
+        </div>
+    </section><!-- #content end -->
+
+    
+
+
+
+
+
+    <section id="content">
+        <div class="content-wrap">
+            <div class="section mb-0 pb-0 border-0">
+                <div class="container clearfix">
+                    <h3 class="center bottommargin">
+                        Items on sale:</h3>
+                </div>
+            </div>
+
+            <div id="related-portfolio" class="owl-carousel owl-carousel-full portfolio-carousel footer-stick carousel-widget" data-margin="1" data-pagi="false" data-autoplay="5000" data-loop="true" data-items-xs="1" data-items-sm="2" data-items-md="4" data-items-xl="4">
+
+
+                {% for s in sale_product %}
+                <div class="oc-item">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <a href="{% url 'products_detail' s.id %}">
+                                <img src="{{s.main_image.url}}" alt="{{c.name}}">
+                            </a>
+                            <div class="bg-overlay">
+                                <div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-speed="350">
+                                    <a href="{{s.main_image.url}}" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeInUpSmall" data-hover-speed="350" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                                    
+                                </div>
+                                <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-speed="350"></div>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="{% url 'products_detail' s.id %}">{{s.name}}</a></h3>
+                            <span> <a href="{% url 'products_detail' s.id %}">{{s.title}}</a></span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                
+            </div><!-- .portfolio-carousel end -->
+        
+
+
+            
+        
+        </div>
+    </div>
+
+
+    <div class="section border-top-0 m-0">
+        <div class="container text-center">
+
+            <div class="heading-block center">
+                <h2>New Items.</h2>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+
+    <!-- Content
+    ============================================= -->
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+
+                <div class="row gutter-40 col-mb-80">
+                    <!-- Post Content
+                    ============================================= -->
+                    <div class="postcontent col-lg-12 order-lg-last">
+
+                        <!-- Shop
+                        ============================================= -->
+                        <div id="shop" class="shop row grid-container gutter-20" data-layout="fitRows">
+
+                            
+                            {% for n in new_product %}
+                            <div class="product col-md-4 col-sm-6 col-12">
+                                <div class="grid-inner">
+                                    <div class="product-image">
+                                        <div class="fslider" data-arrows="false">
+                                            <div class="flexslider">
+                                                <div class="slider-wrap">
+                                                    <div class="slide"><a href="{% url 'products_detail' n.id %}"><img src="{{n.main_image.url}}" alt="Dark Brown Boots"></a></div>
+                                                    <div class="slide"><a href="{% url 'products_detail' n.id %}"><img src="{{n.second_image.url}}" alt="Dark Brown Boots"></a></div>
+                                                    <div class="slide"><a href="{% url 'products_detail' n.id %}"><img src=".{{n.three_image.url}}" alt="Dark Brown Boots"></a></div>
+                                                </div>
+                                            </div>
+                                        </div>											
+                                    </div>
+                                    <div class="product-desc">
+                                        <div class="product-title"><h3><a href="{% url 'products_detail' n.id %}">{{n.name}}</a></h3></div>
+                                        <div class="product-price">{{n.category}}</div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            
+                                                        
+
+                        </div><!-- #shop end -->
+
+                    </div><!-- .postcontent end -->
+
+                </div>
+
+            </div>
+        </div>
+    </section><!-- #content end -->
+
+{% endblock %}

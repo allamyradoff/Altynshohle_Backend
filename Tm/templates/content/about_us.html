@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %} 
+ 
+		{% for i in about_us %}
+        <!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix" style="background-image: url('{{i.main_image.url}}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+				<div class="banner" >
+					
+				</div>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+
+					
+					<!-- Portfolio Items
+					============================================= -->
+					<div id="portfolio" class="portfolio row grid-container gutter-20 gutter-sm-50" data-layout="fitRows">
+
+						<!-- Portfolio Item: Start -->
+						<article class="portfolio-item col-12 pf-media pf-icons">
+							<!-- Grid Inner: Start -->
+							<div class="grid-inner row no-gutters">
+								<!-- Image: Start -->
+								<div class="portfolio-image col-lg-6">
+									<div class="grid-inner">
+											<img src="{{i.second_image.url}}" alt="Open Imagination">
+										
+										
+									</div>
+								</div>
+								<!-- Image: End -->
+								<!-- Decription: Start -->
+								<div class="portfolio-desc col-lg-6 p-4 px-lg-5">
+									<h3>{{i.title}}</h3>
+
+									<p class="mt-3 d-none d-sm-block" >{{i.desc}}</p>
+									
+									 
+								</div>
+								<!-- Description: End -->
+							</div>
+							<!-- Grid Inner: End -->
+						</article>
+						<!-- Portfolio Item: End -->
+
+						
+					</div><!-- #portfolio end -->
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+
+		{% endfor %}
+
+		<div class="section mb-0">
+			<div class="container">
+				<div class="heading-block center border-bottom-0 mb-0">
+					<h3>Iş önümçiliginden pursatlar</h3>
+				</div>
+			</div>
+		</div>
+
+		<div id="portfolio" class="portfolio row grid-container portfolio-reveal no-gutters">
+			{% for i in galleria %}
+			<article class="portfolio-item col-12 col-sm-6 col-md-4 col-lg-1-5 pf-illustrations">
+				<div class="grid-inner">
+					<div class="portfolio-image">
+						<a href="#">
+							<img src="{{i.image.url}}" alt="Locked Steel Gate">
+						</a>
+						<div class="bg-overlay">
+							<div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item">
+								<a href="{{i.image.url}}" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="fadeInDownSmall" data-hover-animate-out="fadeOutUpSmall" data-hover-speed="350" data-hover-parent=".portfolio-item" data-lightbox="image" title="{{i.name}}"><i class="icon-line-plus"></i></a>
+								
+							</div>
+							<div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-parent=".portfolio-item"></div>
+						</div>
+					</div>
+					
+				</div>
+			</article>
+			{% endfor %}
+
+			
+
+			
+
+		</div><!-- #portfolio end -->
+
+
+{% endblock %} 
+    
